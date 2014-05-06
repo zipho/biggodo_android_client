@@ -1,23 +1,13 @@
 package biggodo.com;
 
-import java.io.BufferedInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLConnection;
 import java.net.URLDecoder;
 import java.util.UUID;
-
 import org.apache.http.util.EncodingUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import android.graphics.Bitmap;
 import biggodo.com.R;
+import android.graphics.Bitmap;
 import biz.trustpay.objects.Request;
 import biz.trustpay.ui.Payments;
 import android.net.Uri;
@@ -167,7 +157,7 @@ public class Biggodo extends Activity  {
 	public void Register() {
 		CmsRegister cmsregister = new CmsRegister(this);
 		cmsregister
-				.setUrl("https://my.trustpay.biz/FullTracksRegister/Register?username="
+				.setUrl("https://my.trustpay.biz/BigGodoRegister/Register?username="
 						+ username + "&msisdn=" + msisdn + "&mcc=" + mcc);
 		Thread tr = new Thread(cmsregister);
 		tr.start();
@@ -228,16 +218,14 @@ public class Biggodo extends Activity  {
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
-				}
+				}				
 				
-				/*
 				System.out.println("Signing in:" + "username=" + username
 						+ "&pin=" + pin + "&commit=Sign+in");
 				String postData = "username=" + username + "&pin=" + pin
 						+ "&commit=Sign+in";
-				*/
-				myWebView.postUrl("http://biggodo.m4me.mobi/q9Y/display/latest",
-						EncodingUtils.getBytes("", "BASE64"));
+				myWebView.postUrl("http://biggodo.m4me.mobi/q9Y/signin",
+						EncodingUtils.getBytes(postData, "BASE64"));
 			}
 		});
 	}
